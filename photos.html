@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Some photos and letters for you🥹</title>
+
+<style>
+
+body{
+font-family:Segoe UI;
+background:#f3e6ea;
+text-align:center;
+padding:40px;
+margin:0;
+}
+
+h1{
+color:#ff5ca8;
+margin-bottom:40px;
+}
+
+/* gallery grid */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:35px;
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+/* images */
+
+.gallery img{
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:18px;
+cursor:pointer;
+transition:0.3s;
+
+box-shadow:
+0 0 10px #ff9ecf,
+0 0 20px #ff9ecf,
+0 0 30px rgba(255,105,180,0.5);
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+
+box-shadow:
+0 0 15px #ff69b4,
+0 0 30px #ff69b4,
+0 0 50px rgba(255,105,180,0.7);
+}
+
+/* lightbox */
+
+#lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:1000;
+}
+
+#lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:10px;
+}
+
+/* close button */
+
+#closeBtn{
+position:absolute;
+top:25px;
+right:40px;
+font-size:40px;
+color:white;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Some things I want you to see and read 📸</h1>
+
+<div class="gallery">
+
+<img src="IMG20260227145010.jpg" onclick="openLightbox(this.src)">
+<img src="photo_2026-03-10_03-26-44.jpg" onclick="openLightbox(this.src)">
+
+<img src="photo_2026-03-08_19-46-46.jpg" onclick="openLightbox(this.src)">
+<img src="photo_2026-03-08_19-46-49.jpg" onclick="openLightbox(this.src)">
+<img src="photo_2026-03-08_19-46-52.jpg" onclick="openLightbox(this.src)">
+<img src="Screenshot 2026-03-10 032954.png" onclick="openLightbox(this.src)">
+<img src="image.png" onclick="openLightbox(this.src)">
+
+
+
+</div>
+
+<!-- lightbox -->
+
+<div id="lightbox" onclick="closeLightbox()">
+
+<span id="closeBtn">&times;</span>
+
+<img id="lightboxImg">
+
+</div>
+
+<script>
+
+function openLightbox(src){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lightboxImg").src=src;
+}
+
+function closeLightbox(){
+document.getElementById("lightbox").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
